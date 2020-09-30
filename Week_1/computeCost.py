@@ -7,14 +7,6 @@ def computeCost(X, y, theta):
     """
     m = y.size
     J = 0.
-
-    # ====================== YOUR CODE HERE ======================
-    # Instructions: Compute the cost of a particular choice of theta
-
-    for i in X:
-        for j in y:
-            J += 1/(2*m) * (np.array([[1, i]])@theta - j )**2
-
-	#   ============================================================
-
+    for i in range(m):
+        J += 1/(2*m) * (X[i]@theta - y[i])**2
     return J

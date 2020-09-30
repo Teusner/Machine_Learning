@@ -8,29 +8,17 @@ def gradientDescent(X, y, theta, alpha, num_iters):
        taking num_iters gradient steps with learning rate alpha
     """
     # Initialize some useful values
-    m = y.size  # number of training examples
-    n = theta.size # number of parameters
+    m = y.size      # number of training examples
+    n = theta.size  # number of parameters
+    s = 0.          # sum variable
     cost_history = np.zeros(num_iters) # cost over iters
     theta_history = np.zeros((n,num_iters)) # theta over iters
 
     for i in range(num_iters):
-    #   ====================== YOUR CODE HERE ======================
-    # Instructions: Perform a single gradient step on the parameter vector
-    #               theta.
-    #
-    # Hint: While debugging, it can be useful to print out the values
-    #       of the cost function (computeCost) and gradient here.
-
-        sum = 0.
-        for i in X:
-            for j in y:
-                sum += (np.array([[1, i]])@theta - j) @ np.array([[1, i]])
-
-        theta -= alpha/m*sum
+        for j in range(m):
+            theta -= alpha/m*((X[j]@theta - y[j])*X[j]).reshape(2, 1)
 
         cost_history[i] = computeCost(X, y, theta)
         theta_history[:,i] = theta.reshape((2,))
-    
-    #   ============================================================
 
     return theta, cost_history, theta_history
