@@ -10,5 +10,5 @@ def featureNormalize(X):
     """
 
     mu, sigma = np.mean(X, axis=0), np.std(X, axis=0)
-    X_norm = (X - np.ones((X.shape))*mu) / sigma
+    X_norm = (X - np.ones(X.shape) * mu) / sigma
     return X_norm, mu, sigma

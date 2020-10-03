@@ -14,24 +14,10 @@ def gradientDescentMulti(X, y, theta, alpha, num_iters):
     cost_history = np.zeros(num_iters)
     theta_history = np.zeros((n,num_iters))
 
-
     for i in range(num_iters):
-    #   ====================== YOUR CODE HERE ======================
-    # Instructions: Perform a single gradient step on the parameter vector
-    #               theta.
-    #
-    # Hint: While debugging, it can be useful to print out the values
-    #       of the cost function (computeCost) and gradient here.
-    #
-
-
-
-
-
+        for j in range(m):
+            theta -= alpha/m*((X[j]@theta - y[j])*X[j]).reshape(n, 1)
 
         cost_history[i] = computeCostMulti(X, y, theta)
-        theta_history[:,i] = theta.reshape((n,))
-      
-    #   ============================================================
-        
+        theta_history[:,i] = theta.reshape((n,))    
     return theta, cost_history, theta_history
