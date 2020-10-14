@@ -8,19 +8,5 @@ def normalEqn(X,y):
     """
 
     # Initialize some useful values
-    theta = 0
-    
-    # ====================== YOUR CODE HERE ======================
-    # Instructions: Complete the code to compute the closed form solution
-    #               to linear regression and put the result in theta.
-    #
-    
-
-
-
-
-
-
-    # ==============================================================
-
+    theta = np.linalg.inv(X.T @ X) @ X.T @ y
     return theta

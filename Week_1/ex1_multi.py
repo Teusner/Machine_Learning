@@ -102,8 +102,9 @@ print('\n -------------------------- \n')
 print('Theta computed from gradient descent: ')
 print(theta)
 
-# Estimate the price of a 1650 sq-ft, 3 br house
-price = np.array([[1,1650,3]]).dot(theta)
+# Estimate the price of a 1650 sq-ft, 3 br house after normalizing the vector as the dataset
+Xn = (np.array([[1650, 3]]) - np.ones((1, 2)) * mu) / sigma
+price = np.hstack((np.array([[1]]), Xn)) @ theta
 
 print('\n -------------------------- \n')
 print('Predicted price of a 1650 sq-ft, 3 br house')
@@ -166,3 +167,5 @@ print("Predicted price of a 1650 sq-ft, 3 br house ")
 print('(using normal equations):\n $%f\n' % price)
 
 # ============================================================
+
+# %%
