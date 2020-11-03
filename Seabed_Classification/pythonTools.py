@@ -79,7 +79,7 @@ def plot_batch(images_df, grid_width, grid_height, im_scale_x, im_scale_y):
             # ttt = sp.misc.imresize(ttt,(im_scale_x,im_scale_y)) # scipy version deprecated
 
             ttt = plt.imread(DATASET_PATH + images_df.iloc[img_idx]['id'])
-            ttt = skimage.transform.resize(ttt,(im_scale_x,im_scale_y)) # skimage version
+            #ttt = skimage.transform.resize(ttt,(im_scale_x,im_scale_y)) # skimage version
 
 
             # ttt = Image.open(DATASET_PATH + images_df.iloc[img_idx]['id'])
